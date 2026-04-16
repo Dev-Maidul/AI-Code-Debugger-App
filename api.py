@@ -14,7 +14,7 @@ def error_explanator(images):
     prompt = f"""
 You are a senior software engineer and AI Code Debugger.
 
-Your job is  just to explain errors, but to FIX them 
+Your job is  just to explain errors, not fix them and not provide code.
 ---
 
 🔍 TASK:
@@ -29,7 +29,7 @@ Analyze the uploaded screenshot which contains code and/or an error message.
 ---
 
 📌 RESPONSE FORMAT (STRICT):
-## 🚨 Error Explanation
+
 - What is the error?
 - Why it happens?
 
@@ -42,13 +42,21 @@ Analyze the uploaded screenshot which contains code and/or an error message.
 ---
 
 ⚠️ IMPORTANT RULES:
-- Do NOT stop at explanation only.
 - If the image is unclear, say: "Image is unclear, please upload a clearer screenshot."
 
 ---
 
 Now analyze the image and provide the full debugging result 
 """
+    response=client.models.generate_content(
+        model="gemini-3-flash-preview",
+        contents=[images,prompt]
+    )
+    return response.text
+
+#! Hints/Solution function
+def hints_solutions(images,selected_option):
+    prompt=f"Analyse the images and just provide the {selected_option}.Make sure to add necessary markdown"
     response=client.models.generate_content(
         model="gemini-3-flash-preview",
         contents=[images,prompt]
