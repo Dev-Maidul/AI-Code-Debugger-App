@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
-from api import error_explanator
-from api import hints_solutions
+from api import error_explanator, hints_solutions
 
 # Page Config
 st.set_page_config(
