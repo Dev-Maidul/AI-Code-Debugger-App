@@ -1,3 +1,4 @@
+import utils.session
 import streamlit as st
 from PIL import Image
 from api import error_explanator, hints_solutions
