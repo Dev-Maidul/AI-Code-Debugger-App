@@ -8,7 +8,7 @@ An intelligent **AI-powered debugging tool** that analyzes code errors from scre
 
 ## 🔥 Live Demo
 
-👉 *(Add your Streamlit deployed link here)*
+👉 https://ai-debug-assistant.streamlit.app/
 
 ---
 
